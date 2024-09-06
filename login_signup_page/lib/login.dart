@@ -62,11 +62,12 @@ class _MyLoginState extends State<MyLogin> {
                       height: 40,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Sign In', style: TextStyle(
                           color: Color(0xff4c505b),
-                          fontSize: 27, fontWeight: FontWeight.w700
+                          fontSize: 27, fontWeight: FontWeight.w700,
+
                         ),),
                         CircleAvatar(
                           radius: 30,
@@ -76,6 +77,24 @@ class _MyLoginState extends State<MyLogin> {
                               onPressed: (){},
                               icon: Icon(Icons.arrow_forward)),
                         )
+                      ],
+                    ),
+                    SizedBox(height: 40,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(onPressed: (){
+                          Navigator.pushNamed(context, 'register');
+                        }, child: Text("Sign Up", style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontSize: 18,
+                          color: Color(0xff4c505b)
+                        ),)),
+                        TextButton(onPressed: (){}, child: Text("Forgot Password", style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontSize: 18,
+                            color: Color(0xff4c505b)
+                        ),)),
                       ],
                     )
                   ],
