@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kishanmil/farmer_login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFFFFEFA)),
         useMaterial3: true,
       ),
@@ -33,6 +33,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _isFarmerPressed = false;
+  bool _isPartnerPressed = false;
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -42,18 +45,17 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      // appBar: AppBar(
-      //   // TRY THIS: Try changing the color here to a specific color (to
-      //   // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-      //   // change color while the other colors stay the same.
-      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      //   // Here we take the value from the MyHomePage object that was created by
-      //   // the App.build method, and use it to set our appbar title.
-      //   title: Text("Kishan Mill"),
-      // ),
+        // appBar: AppBar(
+        //   // TRY THIS: Try changing the color here to a specific color (to
+        //   // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        //   // change color while the other colors stay the same.
+        //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        //   // Here we take the value from the MyHomePage object that was created by
+        //   // the App.build method, and use it to set our appbar title.
+        //   title: Text("Kishan Mill"),
+        // ),
         body: Stack(
           children: [
-
             // Background Image at the bottom
             Positioned(
               bottom: 0,
@@ -95,16 +97,44 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            // border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(25),
                           ),
                           width: 200,
                           child: OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                _isFarmerPressed = true; // Set pressed state
+                              });
+
+                              // Navigate to the login page and reset button state when returning
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return farmerloginpage();
+                                  })).then((value) {
+                                setState(() {
+                                  _isFarmerPressed = false; // Reset pressed state when coming back
+                                });
+                              });
+                            },
+                            style: OutlinedButton.styleFrom(
+                              backgroundColor: _isFarmerPressed
+                                  ? Color(0xFF166119) // Green color when pressed
+                                  : Colors.transparent, // Transparent when not pressed
+                              side: BorderSide(
+                                color: _isFarmerPressed
+                                    ? Colors.transparent
+                                    : Colors.black,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                            ),
                             child: Text(
                               "Farmer Login",
                               style: TextStyle(
-                                color: Colors.black,
+                                color: _isFarmerPressed
+                                    ? Colors.white // White text when pressed
+                                    : Colors.black, // Black text when not pressed
                               ),
                             ),
                           ),
@@ -115,22 +145,49 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   SizedBox(height: 10),
 
-                  // Button for freelancer login
+                  // Button for farm partner login
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          // border: Border.all(color: Colors.black),
                           borderRadius: BorderRadius.circular(25),
                         ),
                         width: 200,
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              _isPartnerPressed = true;  // Set pressed state for Farm-Partner
+                            });
+
+                            // Reset button state after a short delay
+                            Future.delayed(Duration(milliseconds: 100), () {
+                              setState(() {
+                                _isPartnerPressed = false;  // Reset pressed state after delay
+                              });
+                            });
+
+                            print("Navigate to Farm Partner destination page");
+                          },
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: _isPartnerPressed
+                                ? Color(0xFF166119) // Green color when pressed
+                                : Colors.transparent, // Transparent when not pressed
+                            side: BorderSide(
+                              color: _isPartnerPressed
+                                  ? Colors.transparent
+                                  : Colors.black,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                          ),
                           child: Text(
-                            "Freelancer Farmer",
+                            "Farm-Partner",
                             style: TextStyle(
-                              color: Colors.black,
+                              color: _isPartnerPressed
+                                  ? Colors.white // White text when pressed
+                                  : Colors.black, // Black text when not pressed
                             ),
                           ),
                         ),
