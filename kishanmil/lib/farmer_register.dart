@@ -95,9 +95,83 @@ class _FarmerRegisterPageState extends State<FarmerRegisterPage> {
                   ),
         
                   // End of Name Input Field
-        
-        
+
+                  // Space between Name and Landsize filled
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  //Container 'LandSize' label
+                  Container(
+                    child: Text('Landsize *',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600
+                      ),
+                    ),
+                  ),
+
+                  // Space between label & textfield
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                      // Container landsize textfield and dropdown landsize units
+                      Row(
+                        children: [
+                          // Container for Landsize input filled
+                          Expanded(
+                            flex: 2,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  hintText: 'Enter your landsize',
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25)
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.white
+                              ),
+                            ),
+                          ),
+
+
+                          SizedBox(
+                            height: 20,
+                          ),
+
+
+                          Expanded(
+                            flex: 1,
+                              child: LandsizeUnitsDropdown()
+                          ),
+                        ],
+                      ),
+
                   // Space between 'Name field' & 'Mobile Number field'
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  // Container for Water Availbility label
+
+                  Container(
+                    child: Text('Water availability *',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600
+                      ),
+                    ),
+                  ),
+                  // Space between label & textfield
+                  SizedBox(
+                    height: 10,
+                  ),
+                  // Container for water availablity dropdown
+                  Container(
+                    child: WaterAvailability(),
+                  ),
+
+                  // Space between Water availablity and mobile number field
                   SizedBox(
                     height: 20,
                   ),
@@ -116,7 +190,8 @@ class _FarmerRegisterPageState extends State<FarmerRegisterPage> {
                   SizedBox(
                     height: 10,
                   ),
-                  
+
+
                   // Container for 'Mobile number' textfield
                   Container(
                     child: TextField(
@@ -256,15 +331,15 @@ class _FarmerRegisterPageState extends State<FarmerRegisterPage> {
         
                   // END of 'Gender' radio button
         
-                  //Space between 'Gender field' & 'Referral Code field'
+                  //Space between 'Gender field' & 'Village name Code field'
                   SizedBox(
                     height: 20,
                   ),
         
         
-                  //Container for 'Referral' label
+                  //Container for 'Village name' label
                   Container(
-                    child: Text('Referral Code',
+                    child: Text('Village name *',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600
@@ -279,11 +354,11 @@ class _FarmerRegisterPageState extends State<FarmerRegisterPage> {
                   ),
         
         
-                  // Container for 'Referral Code' textfield
+                  // Container for 'village name' textfield
                   Container(
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: 'Enter Referral Code',
+                        hintText: 'Enter village name',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25)
                         ),
@@ -293,13 +368,117 @@ class _FarmerRegisterPageState extends State<FarmerRegisterPage> {
                     ),
                   ),
 
+                  // Space between 'Village name field' & 'Term and District name field'
+                  SizedBox(
+                    height: 20,
+                  ),
 
-                  // Space between 'Referral field' & 'Term and condition container'
+
+                  // Container for District name field
+
+                  Container(
+                    child: Text('District *',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600
+                      ),
+                    ),
+                  ),
+
+                  // Space between label and input field
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  //Container for District name input field
+                  Container(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter your district',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25)
+                        ),
+                        filled: true,
+                        fillColor: Colors.white
+                      ),
+                    ),
+                  ),
+
+                  // Space between District and State field
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  // Container for State field
+                  Container(
+                    child: Text('State *',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600
+                      ),
+                    ),
+                  ),
+
+                  // Space between label and textfield
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  // Container for State input field
+                  Container(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter your state',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25)
+                        ),
+                        fillColor: Colors.white,
+                        filled: true
+                      ),
+                    ),
+                  ),
+
+                  //Space between State and Pincode field
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  // Container for pincode label
+                  Container(
+                    child: Text('Pincode *',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600
+                      ),
+                    ),
+                  ),
+
+                  //Space between label and textfield
+                  SizedBox(
+                    height: 10,
+                  ),
+
+
+                  // Container for pincode textfield
+                  Container(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Enter pincode',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25)
+                        ),
+                        filled: true,
+                        fillColor: Colors.white
+                      ),
+                    ),
+                  ),
+
+                  // Space between 'Pincode field' & 'Term and condition container'
                   SizedBox(
                     height: 20,
                   ),
                   
-                  // Start of Terms and Conditions Text
+                  // Start creating of Terms and Conditions Text
 
                   Column(
                       children: [
@@ -333,7 +512,6 @@ class _FarmerRegisterPageState extends State<FarmerRegisterPage> {
                                     color: Color(0xFF166119),
                                     decoration: TextDecoration.underline,
                                 ),
-
                               ),
                             ),
                           ],
@@ -430,11 +608,100 @@ class _FarmerRegisterPageState extends State<FarmerRegisterPage> {
                       ),
                     ),
                   ),
+
+                  // Create Space after last sign line
+                  SizedBox(
+                    height: 20,
+                  )
                 ],
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+}
+
+
+class LandsizeUnitsDropdown extends StatefulWidget {
+
+  @override
+  State<LandsizeUnitsDropdown> createState() => _LandsizeUnitsDropdown();
+}
+
+class _LandsizeUnitsDropdown extends State<LandsizeUnitsDropdown> {
+  List<String> unitsList = ['Bigha', 'Acre'];
+  String dropDown = 'Bigha';  // Default selected value
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),  // Padding inside the dropdown
+      decoration: BoxDecoration(
+        color: Colors.white,  // Background color
+        borderRadius: BorderRadius.circular(25), // Circular border radius
+        border: Border.all(color: Colors.black),  // Black border
+      ),
+      child: DropdownButton<String>(
+        value: dropDown,  // The current selected value
+        isExpanded: true,  // Make the dropdown take full width
+        underline: SizedBox(),  // Remove the default underline
+        onChanged: (String? newValue) {  // When a new item is selected
+          setState(() {
+            dropDown = newValue!;  // Update the selected value
+          });
+        },
+        items: unitsList.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),  // Convert list of items into dropdown menu items
+      ),
+    );
+  }
+}
+
+
+class WaterAvailability extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _WaterAvailability();
+
+}
+
+class _WaterAvailability extends State<WaterAvailability>{
+
+  List<String> waterSurce = ['Kuan', 'Boring', 'Baarish'];
+  String source = 'Kuan';
+  @override
+  Widget build(BuildContext context) {
+
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(25),
+            border: Border.all(
+              color: Colors.black,
+            )
+          ),
+      child: DropdownButton<String>(
+          value: source,
+          isExpanded: true,
+          underline: SizedBox(),
+          onChanged: (String? newValue){
+            setState(() {
+              source = newValue!;
+            });
+          },
+          items: waterSurce.map<DropdownMenuItem<String>>((String value){
+            return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+            );
+          }).toList(),
       ),
     );
   }

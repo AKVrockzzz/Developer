@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kishanmil/farm_partner_login.dart';
 import 'package:kishanmil/farmer_login.dart';
 
 void main() {
@@ -148,17 +149,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: OutlinedButton(
                           onPressed: () {
                             setState(() {
-                              _isPartnerPressed = true;  // Set pressed state for Farm-Partner
+                              _isPartnerPressed = true; // Set pressed state
                             });
 
-                            // Reset button state after a short delay
-                            Future.delayed(Duration(milliseconds: 100), () {
+                            // Navigate to the login page and reset button state when returning
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                                  return FarmPartnerLoginPage();
+                                })).then((value) {
                               setState(() {
-                                _isPartnerPressed = false;  // Reset pressed state after delay
+                                _isPartnerPressed = false; // Reset pressed state when coming back
                               });
                             });
-
-                            print("Navigate to Farm Partner destination page");
                           },
                           style: OutlinedButton.styleFrom(
                             backgroundColor: _isPartnerPressed
